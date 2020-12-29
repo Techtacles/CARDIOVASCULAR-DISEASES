@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CARDIO</title>
+</head>
+<body>
+
+
+
+
+
+	 <div class="login-content">
+      <form action="{{ url_for("predict")}}" method="POST">
+        <img src="{{url_for("static",filename="img/avatar.svg")}}">
+        <div class="container-pro"></div>
+        
+              <div class="input-div one">
+                 <div class="i">
+                    <i class="fas fa-user"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Enter Age</h5>
+                    <input type="text"  name="age" id="age" class="input" required>
+                 </div>
+              </div>
+
+
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Systolic B.P</h5>
+                    <input type="text" name="systolic" class="input" id="systolic" required>
+                 </div>
+              </div>
+
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Diastolic B.P</h5>
+                    <input type="text" name="diastolic" class="input" id="diastolic" required>
+                 </div>
+              </div>
+
+
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Pulse Pressure</h5>
+                    <input type="text" name="pulse" class="input" id="pulse" required>
+                 </div>
+              </div>
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Body Mass Index</h5>
+                    <input type="text" name="bmi" id="bmi" class="input" required>
+                 </div>
+              </div><br>
+              
+
+              <p>Gender</p>
+              <input type="radio" name="gender" value="male" checked> Male<br>
+              <input type="radio" name="gender" value="female"> Female<br>
+
+
+
+
+              <p>Cholesterol</p>
+              <input type="radio" name="cholesterol" value="above normal" checked>Above normal <br>
+              <input type="radio" name="cholesterol" value="extreme"> Extreme<br>
+              <input type="radio" name="cholesterol" value="normal"> Normal<br>
+
+
+              <p>Glucose</p>
+              <input type="radio" name="glucose" value="above normal" checked>Above normal <br>
+              <input type="radio" name="glucose" value="extreme"> Extreme<br>
+              <input type="radio" name="glucose" value="normal"> Normal<br>
+
+
+              <p>Smoker</p>
+              <input type="radio" name="smoke" value="no" checked>No <br>
+              <input type="radio" name="smoke" value="yes"> Yes<br>
+
+              <p>Alcohol</p>
+              <input type="radio" name="alcohol" value="no" checked>No <br>
+              <input type="radio" name="alcohol" value="yes"> Yes<br>
+
+              <p>Exercise Regularly</p>
+              <input type="radio" name="active" value="no" checked>No <br>
+              <input type="radio" name="active" value="yes"> Yes<br>
+
+
+
+
+
+
+
+
+
+
+
+
+             
+              <input type="submit" class="btn" value="PREDICT ">
+              <p>{{ prediction_text}}</p>
+            </form>
+
+        </div>
+    </div>
+
+
+
+    
+
+
+
+</body>
+</html>
