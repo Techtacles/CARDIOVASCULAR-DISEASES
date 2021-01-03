@@ -63,11 +63,23 @@ def predict():
     new_num=scalerr.transform(numeric)
     overall=np.hstack([new_num,category])
     pred=model.predict(overall)
-    return render_template("index.html",prediction_text=pred)
-    
 
-
-
+    if pred==0:
+        return render_template("index.html",prediction_text=f"You are NOT likely to have CardioVasular Diseases")
+    elif (pred==1)&(float(request.form["systolic"])>130):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOUR SYSTOLIC BLOOD PRESSURE IS TOO HIGH")
+    elif (pred==1)&(float(request.form["systolic"])<80):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOUR SYSTOLIC BLOOD PRESSURE IS TOO LOW")  
+    elif (pred==1)&(float(request.form["diastolic"])>90):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOUR DIASTOLIC BLOOD PRESSURE IS TOO HIGH")
+    elif (pred==1)&(float(request.form["diastolic"])<60):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOUR DIASTOLIC BLOOD PRESSURE IS TOO LOW")
+    elif (pred==1)&(float(request.form["bmi"])>27):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOU ARE GETTING TOO OBESE")
+    elif (pred==1)&(float(request.form["bmi"])<18):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOU ARE UNDERWEIGHT")
+    elif (pred==1)&(float(request.form["systolic"])>130)&(float(request.form["diastolic"])>90)&(float(request.form["bmi"])>27):
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVascular Diseases.Your Systolic and Diastolic Pressure is very high and you're Overweight")
 
 if __name__ == '__main__':
     
