@@ -1,9 +1,9 @@
 from flask import Flask,request, jsonify, render_template
 import pickle
 import numpy as np
-from xgboost import XGBClassifier
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import OneHotEncoder
+#from xgboost import XGBClassifier
+#from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import OneHotEncoder
 #import os
 #from pathlib import Path
 app = Flask(__name__)
@@ -25,7 +25,7 @@ def predict():
     
     cat=[[request.form["gender"],request.form["cholesterol"],request.form["glucose"],request.form["smoke"],
           request.form["alcohol"],request.form["active"]]]
-    ohe=OneHotEncoder()
+    #ohe=OneHotEncoder()
     test=cat[0]
     def func(alist):
         if alist[0]=="male":
