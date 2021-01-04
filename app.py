@@ -66,6 +66,7 @@ def predict():
 
     if pred==0:
         return render_template("index.html",prediction_text=f"You are NOT likely to have CardioVasular Diseases")
+   
     elif (pred==1)&(float(request.form["systolic"])>130):
         return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOUR SYSTOLIC BLOOD PRESSURE IS TOO HIGH")
     elif (pred==1)&(float(request.form["systolic"])<80):
@@ -80,7 +81,8 @@ def predict():
         return render_template("index.html",prediction_text=f"You are likely to have CardioVasular Diseases AND YOU ARE UNDERWEIGHT")
     elif (pred==1)&(float(request.form["systolic"])>130)&(float(request.form["diastolic"])>90)&(float(request.form["bmi"])>27):
         return render_template("index.html",prediction_text=f"You are likely to have CardioVascular Diseases.Your Systolic and Diastolic Pressure is very high and you're Overweight")
-
+    else:
+        return render_template("index.html",prediction_text=f"You are likely to have CardioVascular Diseases")
 if __name__ == '__main__':
     
     app.run()
